@@ -22,43 +22,31 @@ while (i < 3) {
 */
 
 
-/*2) Перепишите код в двух синтаксисах (одну можно закомментировать) Function Expression и стрелочной функцией
-Сейчас в функцию ask передаются анонимные каллбек функции, дайте им имена и передавайте как каллбек через переменную описания.*/
- 
-console.log("\nЗадача 2");
-//Реализация способом 2
+//2) Перепишите код в двух синтаксисах (одну можно закомментировать) Function Expression и стрелочной функцией
+//Сейчас в функцию ask передаются анонимные каллбек функции, дайте им имена и передавайте как каллбек через переменную описания.
+//Реализация способом 1
+/*
 let ask = function (question, answer, yes, no) {
   question();
-  if (answer) yes();
-  else no();
+  answer ? yes() : no();
 }
 
 let question = function() {console.log("Вы согласны?")};
 let yes = function() {console.log("Вы согласились.")};
 let no = function() {console.log("Вы отказались.")};
 
-console.log("Реазлизация 1");
+console.log("\nЗадача 2 : Рализация сопособом 1");
 ask(question, true, yes, no);
-
-
+*/
 
 //Реализация способом 2
-
-let ask = (question, answer, yes, no) => {
-  let outputString = `${question}\n`;
-  if (answer) {
-    outputString += yes;
-  } else {
-    outputString += no;
-  } 
-  return outputString;
-}
+let ask = (question, answer, yes, no) => `${question}\n${answer ? yes : no}`;
 
 let question = () => "Вы согласны?";
 let yes = () => "Вы согласились.";
 let no = () => "Вы отказались.";
 
-console.log("\nРеализация способом 2");
+console.log("\nЗадача 2 : Рализация сопособом 2");
 console.log(ask(question(), true, yes(), no()));
 
 
